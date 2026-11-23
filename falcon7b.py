@@ -9,12 +9,11 @@ from falcon import Request, Response
 model = "tiiuae/falcon-7b-instruct"
 
 tokenizer = AutoTokenizer.from_pretrained(model)
-pipeline = transformers.pipeline(
+generator = pipeline(
     "text-generation",
     model=model,
     tokenizer=tokenizer,
-    torch_dtype=torch.bfloat16,
-    trust_remote_code=True,
+    dtype=torch.bfloat16,
     device_map="auto",
 )
 
