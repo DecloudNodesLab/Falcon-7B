@@ -12,7 +12,7 @@ generator = pipeline(
     "text-generation",
     model=MODEL_ID,
     tokenizer=tokenizer,
-    dtype=torch.bfloat16,
+    dtype=torch.float16,
     device_map="auto",
 )
 
